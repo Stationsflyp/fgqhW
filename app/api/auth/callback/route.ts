@@ -1,10 +1,16 @@
 import type { NextRequest } from "next/server"
 import { cookies } from "next/headers"
 
+<<<<<<< HEAD
 const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID || "1380363473623449750"
 const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET || "QOWMq4-4u2EyarN2i-snjdZy6VlOkLNo"
 const DISCORD_REDIRECT_URI = `${process.env.NEXTAUTH_URL || "https://oxcytools.vercel.app"}/api/auth/callback`
 const DISCORD_SERVER_ID = process.env.DISCORD_SERVER_ID || "YOUR_SERVER_ID" // Agrega tu Server ID aquí
+=======
+const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID || "1373548029008805950"
+const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET || "BPtWedPxjRprT4Vdq9EeHKAZ7gJk87X1"
+const DISCORD_REDIRECT_URI = `${process.env.NEXTAUTH_URL || "https://oxcytools.vercel.app"}/api/auth/callback`
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
@@ -51,6 +57,7 @@ export async function GET(request: NextRequest) {
       throw new Error("Failed to get user info")
     }
 
+<<<<<<< HEAD
     // Check if user is in the required Discord server
     const guildMemberResponse = await fetch(`https://discord.com/api/users/@me/guilds/${DISCORD_SERVER_ID}/member`, {
       headers: {
@@ -67,6 +74,9 @@ export async function GET(request: NextRequest) {
     const guildMember = await guildMemberResponse.json()
 
     // Set session cookie with server verification
+=======
+    // Set session cookie
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
     const cookieStore = await cookies()
     cookieStore.set(
       "session",
@@ -75,6 +85,7 @@ export async function GET(request: NextRequest) {
         username: user.username,
         discriminator: user.discriminator || "0000",
         avatar: user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : null,
+<<<<<<< HEAD
         serverMember: true,
         roles: guildMember.roles || [],
         joinedAt: guildMember.joined_at,
@@ -82,6 +93,12 @@ export async function GET(request: NextRequest) {
       {
         httpOnly: true,
         secure: true,
+=======
+      }),
+      {
+        httpOnly: true,
+        secure: true, // Always secure for production
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
         maxAge: 60 * 60 * 24 * 7, // 7 days
         sameSite: "lax",
       },

@@ -11,16 +11,23 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+<<<<<<< HEAD
 import { Badge } from "@/components/ui/badge"
 import { LogOut, User, Shield, Crown } from "lucide-react"
+=======
+import { LogOut, User } from "lucide-react"
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
 
 export function UserProfile() {
   const { user, logout } = useAuth()
 
   if (!user) return null
 
+<<<<<<< HEAD
   const memberSince = user.joinedAt ? new Date(user.joinedAt).toLocaleDateString() : "Unknown"
 
+=======
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -34,6 +41,7 @@ export function UserProfile() {
               {user.username.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
+<<<<<<< HEAD
           {user.serverMember && (
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-black flex items-center justify-center">
               <Shield className="w-2 h-2 text-white" />
@@ -81,6 +89,18 @@ export function UserProfile() {
           </>
         )}
 
+=======
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="glass-card border-white/10" align="end">
+        <DropdownMenuLabel className="text-white">
+          <div className="flex flex-col space-y-1">
+            <p className="text-sm font-medium">{user.username}</p>
+            <p className="text-xs text-gray-400">#{user.discriminator}</p>
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator className="bg-white/10" />
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
         <DropdownMenuItem className="text-white hover:bg-white/10">
           <User className="mr-2 h-4 w-4" />
           Profile

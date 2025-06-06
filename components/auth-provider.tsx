@@ -7,9 +7,12 @@ interface User {
   username: string
   avatar: string
   discriminator: string
+<<<<<<< HEAD
   serverMember: boolean
   roles: string[]
   joinedAt: string
+=======
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
 }
 
 interface AuthContextType {
@@ -31,6 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const checkAuth = async () => {
     try {
+<<<<<<< HEAD
       const response = await fetch("/api/auth/me")
       if (response.ok) {
         const userData = await response.json()
@@ -44,6 +48,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       } else if (response.status === 403) {
         // Usuario no es miembro del servidor
         window.location.href = "/access-denied"
+=======
+      // Check if user is authenticated
+      const response = await fetch("/api/auth/me")
+      if (response.ok) {
+        const userData = await response.json()
+        setUser(userData)
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
       }
     } catch (error) {
       console.error("Auth check failed:", error)

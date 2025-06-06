@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+<<<<<<< HEAD
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ByteAobConverter } from "./byte-aob-converter"
@@ -43,6 +44,11 @@ import {
   Brain,
   Fingerprint,
 } from "lucide-react"
+=======
+import { ByteAobConverter } from "./byte-aob-converter"
+import { Navigation } from "./navigation"
+import { Home, Code2, Plus } from "lucide-react"
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
 
 export function Dashboard() {
   const [activeTab, setActiveTab] = useState("home")
@@ -53,7 +59,11 @@ export function Dashboard() {
 
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+<<<<<<< HEAD
           <TabsList className="glass-card border-0 mb-8 grid grid-cols-6 w-full max-w-3xl mx-auto">
+=======
+          <TabsList className="glass-card border-0 mb-8">
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
             <TabsTrigger value="home" className="data-[state=active]:bg-purple-600">
               <Home className="w-4 h-4 mr-2" />
               Home
@@ -62,6 +72,7 @@ export function Dashboard() {
               <Code2 className="w-4 h-4 mr-2" />
               Tools
             </TabsTrigger>
+<<<<<<< HEAD
             <TabsTrigger value="security" className="data-[state=active]:bg-purple-600">
               <Shield className="w-4 h-4 mr-2" />
               Security
@@ -182,10 +193,76 @@ export function Dashboard() {
                   </CardContent>
                 </Card>
               </div>
+=======
+          </TabsList>
+
+          <TabsContent value="home" className="space-y-6">
+            <div className="text-center mb-8">
+              <h1 className="text-4xl font-bold mb-4 text-gradient">Welcome to OxcyShop</h1>
+              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                Your exclusive access to advanced developer tools and utilities.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card
+                className="glass-card hover:neon-glow transition-all duration-300 cursor-pointer"
+                onClick={() => setActiveTab("tools")}
+              >
+                <CardHeader>
+                  <CardTitle className="flex items-center text-white">
+                    <Code2 className="w-5 h-5 mr-2 text-purple-400" />
+                    Byte/AOB Converter
+                  </CardTitle>
+                  <CardDescription className="text-gray-300">
+                    Convert between byte arrays and Array of Bytes format
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button
+                    variant="outline"
+                    className="w-full border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white"
+                  >
+                    Open Tool
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-dashed border-purple-500/30">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-gray-400">
+                    <Plus className="w-5 h-5 mr-2" />
+                    More Tools Coming
+                  </CardTitle>
+                  <CardDescription className="text-gray-500">Additional utilities will be added soon</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="outline" disabled className="w-full">
+                    Coming Soon
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="glass-card border-dashed border-purple-500/30">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-gray-400">
+                    <Plus className="w-5 h-5 mr-2" />
+                    Future Tool
+                  </CardTitle>
+                  <CardDescription className="text-gray-500">Suggest new tools in our Discord</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="outline" disabled className="w-full">
+                    Coming Soon
+                  </Button>
+                </CardContent>
+              </Card>
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
             </div>
           </TabsContent>
 
           <TabsContent value="tools" className="space-y-6">
+<<<<<<< HEAD
             <div className="text-center mb-8">
               <h2 className="text-4xl font-bold mb-4 text-gradient">Developer Arsenal</h2>
               <p className="text-gray-300 text-lg">Professional tools for elite developers</p>
@@ -549,6 +626,9 @@ export function Dashboard() {
                 </CardContent>
               </Card>
             </div>
+=======
+            <ByteAobConverter />
+>>>>>>> 6d6e8298a93faf08cd87f6138a067439d02b8b18
           </TabsContent>
         </Tabs>
       </main>
