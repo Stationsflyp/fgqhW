@@ -1,0 +1,19 @@
+const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID || "1380363473623449750"
+const DISCORD_REDIRECT_URI = `${process.env.NEXTAUTH_URL || "https://oxcytools.vercel.app"}/api/auth/callback`
+
+export async function GET() {
+  if (!DISCORD_CLIENT_ID) {
+    return new Response("Discord client ID not configured", { status: 500 })
+  }
+
+  const params = new URLSearchParams({
+    client_id: DISCORD_CLIENT_ID,
+    redirect_uri: DISCORD_REDIRECT_URI,
+    response_type: "code",
+    scope: "identify email guilds guilds.members.read", // Agregamos permisos para leer membresía
+  })
+
+  const authUrl = `https://discord.com/api/oauth2/authorize?${params.toString()}`
+
+  return Response.redirect(authUrl)
+}
